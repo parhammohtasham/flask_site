@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ADD POST
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <h1>افزودن پست</h1>
+        <p>عنوان: <input type="text" name="title"></p>
+        <p>توضیحات: <textarea name="body" ></textarea></p>
+        <p><input type="submit" name="ذخیره"></p>
+    </form>
+
+{% endblock %}
