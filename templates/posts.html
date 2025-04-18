@@ -10,11 +10,13 @@
             <th>ID</th>
             <th>TITLE</th>
             <th>BODY</th>
+            <th>میتوانید پست ها را حذف کنید</th>
             {% for post in posts%}
                 <tr>
                     <td>{{post.id}}</td>
                     <td>{{post.title}}</td>
                     <td>{{post.body}}</td>
+                    <td><a href="/delete/post/{{post.id}}">حذف</a></td>
                 </tr>
             {% endfor %}
         </table>

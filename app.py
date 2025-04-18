@@ -31,6 +31,13 @@ def addpost():
         return redirect('/posts')
     else:
         return render_template('addpost.html')
+    
+@app.route('/delete/post/<int:id>')
+def deletepost(id):
+    blog_post=BlogPost.query.get(id)
+    db.session.delete(blog_post)
+    db.session.commit()
+    return redirect('/posts')
 
 
 if __name__=='__main__':
