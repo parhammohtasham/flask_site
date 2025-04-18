@@ -20,7 +20,7 @@ def posts():
     posts=BlogPost.query.all()
     return render_template('posts.html',posts=posts)
 
-@app.route('/addpost', methods=['GET','POST'])
+@app.route('/add/post', methods=['GET','POST'])
 def addpost():
     if request.method=='POST':
         post_title=request.form['title']
@@ -39,6 +39,18 @@ def deletepost(id):
     db.session.commit()
     return redirect('/posts')
 
+@app.route('/edit/post/<int:id>', methods=['POST','GET'])
+def update(id):
+    blog_post=BlogPost.query.get(id)
+    if request.method=='POST':
+        post_title=request.form['title']
+        post_body=request.form['body']
+        blog_post.title=post_title
+        blog_post.body=post_body
+        db.session.commit()
+        return redirect('/posts')
+    else:
+        return render_template('editPost.html',post=blog_post)
 
 if __name__=='__main__':
     with app.app_context():

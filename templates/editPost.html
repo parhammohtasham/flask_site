@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ADD POST
+{% endblock %}
+
+{% block content %}
+    {% if posts %}
+        <form method="post">
+            <h1>  ویرایش پست </h1>
+            <p>عنوان: <input type="text" name="title" value="{{post.title}}"  ></p>
+            <p>توضیحات: <textarea name="body" >{{post.body}}</textarea></p>
+            <p><input type="submit" name="بروزرسانی"></p>
+        </form>
+    {% else %}
+        <h1>ابتدا در صفحه posts پست مورد نطر خود را برای ویرایش انتخاب کنید</h1>
+    {% endif %}
+{% endblock %}
